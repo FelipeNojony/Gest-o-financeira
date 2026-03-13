@@ -17,7 +17,7 @@ export function useDashboard() {
     setLoading(true);
     setError(null);
     try {
-      const { data, error: fetchError } = await getDashboardData(period);
+      const { error: fetchError, ...data } = await getDashboardData(period);
       if (fetchError) {
         const message = fetchError.message || 'Erro ao carregar dados do dashboard';
         setError(message);
